@@ -1,0 +1,74 @@
+{%extends 'partials/base.html'%}
+{% block tital %}employee finance page{% endblock %}
+{% load crispy_forms_tags %}
+{%block content%}
+
+<br>
+
+    <!--Table-->
+    <div class="container">
+        <div class="row my-4">
+            
+            <div class="col-md-12">
+                <table class="table bg-white">
+                    <thead class="bg-info">
+                        <tr class="text-white">
+                            <th scope="col">#</th>
+                            <th scope="col">EmpID</th>
+                            <th scope="col">Basic Salary</th>
+                            <th scope="col">OT Houres</th>
+                            <th scope="col">OT Rate</th>
+                            <th scope="col">Deduction</th>
+                            <th scope="col">Increment</th>
+                            <th scope="col">payment date</th>
+                            <th scope="col">Total Salary</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for sal in sals%}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{sal.empid}}</td>
+                            <td>{{sal.basic_Salary}}</td>
+                            <td>{{sal.OT_houres}}</td>
+                            <td>
+                                {{sal.OT_Rate}}
+                            </td>
+                            <td>{{sal.deduction}}</td>
+                            <td>{{sal.increment}}</td>
+                            <td>{{sal.date}}</td>
+                            <td>{{sal.netsal}}</td>
+                            <td>
+                                <a class="btn btn-info btn-sm" href="{%url 'dashboardnew-employee_updateF' sal.id%}">Edit</a>
+                                <a class="btn btn-danger btn-sm" href="{%url 'dashboardnew-employee_deleteF' sal.id%}">Delete</a>
+                            </td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <div class="col-md-4">
+                <div class="border bg-white p-3">
+                    <h4>Add Employee Salary Details</h4>
+                    <hr>
+                    <form method= 'POST'>
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        
+                      
+                        <input class="btn btn-success btn-block" type="submit" value="Add Employee Salary Details">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--End Table-->
+
+{%endblock%}

@@ -1,0 +1,155 @@
+{%extends 'partials/base.html'%}
+{% block tital %}finance report page{% endblock %}
+
+{%block content%}
+<!--employee-->
+<br>
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-12">
+            <h3 style="color:rgb(255, 255, 255);">All The Employe Salaries Of This Month</h3>
+            <table class="table bg-white">
+                <thead class="bg-info">
+                    <tr class="text-white">
+                        <th scope="col">#</th>
+                        <th scope="col">Employee ID</th>
+                        <th scope="col">Salary</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    {% for empr in emprs %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{empr.id}}</td>
+                        <td>{{empr.netsal}}</td>
+                        
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td><h5>Total</h5></td>
+                        <td></td>
+                        <td><h5>{{total1}}</h5></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<!--order-->
+<br>
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-12">
+            <h3 style="color:rgb(255, 255, 255);">All The Orders Of This Month</h3>
+            <table class="table bg-white">
+                <thead class="bg-info">
+                    <tr class="text-white">
+                        <th scope="col">#</th>
+                        <th scope="col">Order ID</th>
+                        <th scope="col">Orser Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for orders in ordersr %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{orders.id}}</td>
+                        <td>{{orders.totalPrice}}</td>
+                        
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td><h5>Total</h5></td>
+                        <td></td>
+                        <td><h5>{{total2}}</h5></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<br>
+<!--sales-->
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-12">
+            <h3 style="color:rgb(255, 255, 255);">All sales Of This Month</h3>
+            <table class="table bg-white">
+                <thead class="bg-info">
+                    <tr class="text-white">
+                        <th scope="col">#</th>
+                        <th scope="col">Seles Code</th>
+                        <th scope="col">Tatal Amount</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for sales in salesr %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{sales.id}}</td>
+                        <td>{{sales.totalPrice}}</td>
+                        
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td><h5>Total</h5></td>
+                        <td></td>
+                        <td><h5>{{total3}}</h5></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+<br>
+<!--utility bill-->
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-12">
+            <h3 style="color:rgb(255, 255, 255);">All the Utility Bills Of This Month</h3>
+            <table class="table bg-white">
+                <thead class="bg-info">
+                    <tr class="text-white">
+                        <th scope="col">#</th>
+                        <th scope="col">utility Bill ID</th>
+                        <th scope="col">amount</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for utili in utilir %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{utili.id }}</td>
+                        <td>{{utili.price}}</td>
+                        
+                    </tr>
+                    {% endfor %}
+                    <tr>
+                        <td><h5>Total</h5></td>
+                        <td></td>
+                        <td><h5>{{total4}}</h5></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+{%endblock%}
